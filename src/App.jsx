@@ -1,12 +1,10 @@
 import "./App.css";
-import ButtonToggle from "./components/ButtonToggle";
-import Sidebar from "./components/Sidebar";
+import Counter from "./others/Counter";
 
 function App() {
   return (
     <>
-      <Sidebar></Sidebar>
-      <ButtonToggle></ButtonToggle>
+      <Counter></Counter>
     </>
   );
 }
