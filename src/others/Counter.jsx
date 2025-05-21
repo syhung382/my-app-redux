@@ -3,7 +3,7 @@ import {
   decrement,
   increment,
   incrementByValue,
-} from "../redux-toolkit/counterSlice";
+} from "./redux-toolkit/counterSlice";
 
 const Counter = () => {
   // @ts-ignore

@@ -1,10 +1,10 @@
 import "./App.css";
-import Counter from "./others/Counter";
+import HackerNews from "./components/HackerNews";
 
 function App() {
   return (
     <>
-      <Counter></Counter>
+      <HackerNews />
     </>
   );
 }

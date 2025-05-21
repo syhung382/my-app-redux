@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { toggleSidebar } from "../redux-toolkit/globalSlice";
+import { toggleSidebar } from "../others/redux-toolkit/globalSlice";
 
 const ButtonToggle = () => {
   const dispatch = useDispatch();
