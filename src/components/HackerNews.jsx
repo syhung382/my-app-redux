@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getNews, setQuery } from "../sagas/news/newSlice";
+// import { getNews, orderAction, setQuery } from "../sagas/news/newSlice";
 import { debounce } from "lodash";
+import { handleFetchNew, setLoading } from "../redux-thunk/newSlice";
 
 const HackerNews = () => {
   const { hits, loading, errorMessage, query } = useSelector(
@@ -11,13 +12,24 @@ const HackerNews = () => {
 
   const dispatch = useDispatch();
 
+  // eslint-disable-next-line no-unused-vars
   const handleChangeQuery = debounce((e) => {
-    dispatch(setQuery(e.target.value));
+    // dispatch(setQuery(e.target.value));
   }, 400);
 
+  const handleSetLoadding = () => {
+    // @ts-ignore
+    dispatch(setLoading(!loading));
+  };
+
   useEffect(() => {
-    dispatch(getNews());
+    // @ts-ignore
+    dispatch(handleFetchNew("css"));
   }, [dispatch, query]);
+
+  // useEffect(() => {
+  //   dispatch(getNews());
+  // }, [dispatch, query]);
 
   return (
     <div className="w-2/4 p-5 mx-auto mt-5 mb-5 bg-white rounded-lg shadow-md">
@@ -29,14 +41,14 @@ const HackerNews = () => {
           defaultValue={query}
           onChange={handleChangeQuery}
         />
-        {/* <button
-          onClick={() =>
-            setUrl(`https://hn.algolia.com/api/v1/search?query=${query}`)
-          }
+        <button
+          onClick={() => {
+            handleSetLoadding();
+          }}
           className="flex-shrink-0 p-5 font-semibold text-white bg-blue-500 rounded-md"
         >
-          Fetching
-        </button> */}
+          setLoading
+        </button>
       </div>
       {loading && (
         <div className="w-8 h-8 mx-auto my-10 border-4 border-r-4 border-blue-500 rounded-full loading border-r-transparent animate-spin"></div>
